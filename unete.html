@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Únete - ACM ITCM</title>
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <style type="text/tailwindcss">
+        :root {
+            --itcm-blue: #004481;
+            --itcm-gold: #D4AF37;
+            --accent-blue: #2496f3;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        .nav-link {
+            @apply text-[#111518] text-sm font-medium leading-normal relative after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:h-[2px] after:w-0 after:bg-[var(--itcm-blue)] after:transition-all after:duration-300 hover:after:w-full;
+        }
+        
+        .nav-link-active {
+             @apply text-[var(--itcm-blue)] text-sm font-bold leading-normal relative after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:h-[2px] after:w-full after:bg-[var(--itcm-blue)];
+        }
+        
+        /* Estilo para la imagen de fondo del hero */
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 68, 129, 0.7), rgba(0, 90, 158, 0.9)), url("https://www.cdmadero.tecnm.mx/images/galerias/laboratorios/computo/lab%20computo%201.jpg");
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <div class="relative flex size-full min-h-screen flex-col overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+
+            <!-- ESTRUCTURA: Header reutilizado de index.html -->
+            <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 bg-white/80 px-4 sm:px-10 py-3 backdrop-blur-sm">
+                <div class="flex items-center gap-4">
+                    <a href="index.html" aria-label="Página principal de ACM">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg/2048px-Association_for_Computing_Machinery_%28ACM%29_logo.svg.png" alt="Logo de la ACM" class="h-8 w-auto">
+                    </a>
+                    <span class="text-gray-300 font-light text-2xl hidden sm:block">|</span>
+                    <h2 class="text-[var(--itcm-blue)] text-xl font-bold leading-tight tracking-[-0.015em] hidden sm:block">
+                        Capítulo Estudiantil
+                    </h2>
+                </div>
+
+                <!-- CAMBIO: Enlaces del header actualizados para esta página -->
+                <nav class="hidden md:flex flex-1 justify-center gap-8">
+                    <a class="nav-link" href="index.html#inicio">Inicio</a>
+                    <a class="nav-link" href="noticias.html">Noticias</a>
+                    <a class="nav-link" href="eventos.html">Eventos</a>
+                    <!-- CAMBIO: 'Únete' ahora es el enlace activo -->
+                    <a class="nav-link-active" href="unete.html">Únete</a>
+                    <a class="nav-link" href="index.html#contacto">Contacto</a>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <img src="https://www.tecnm.mx/images/tecnm_virtual/tecnm.png" alt="Logo del Tecnológico Nacional de México" class="h-10 sm:h-12 w-auto">
+                    <button id="menu-btn" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--itcm-blue)]"><span class="sr-only">Abrir menú principal</span><svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" /></svg><svg id="menu-icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button>
+                </div>
+
+                <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
+                    <nav class="flex flex-col items-center gap-4 p-5">
+                        <a class="nav-link w-full text-center py-2" href="index.html#inicio">Inicio</a>
+                        <a class="nav-link w-full text-center py-2" href="noticias.html">Noticias</a>
+                        <a class="nav-link w-full text-center py-2" href="eventos.html">Eventos</a>
+                        <a class="nav-link-active w-full text-center py-2" href="unete.html">Únete</a>
+                        <a class="nav-link w-full text-center py-2" href="index.html#contacto">Contacto</a>
+                    </nav>
+                </div>
+            </header>
+
+            <main class="flex-grow">
+                <!-- Sección Hero -->
+                <section class="hero-section bg-cover bg-center text-white py-24 md:py-32">
+                    <div class="container mx-auto px-6 text-center">
+                        <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-tight mb-4">Conecta, Colabora y Crece con Nosotros</h1>
+                        <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 opacity-90">
+                            Únete a la comunidad de estudiantes apasionados por la informática y la tecnología. Descubre oportunidades para desarrollar tus habilidades, ampliar tu red de contactos y participar en proyectos innovadores.
+                        </p>
+                        <a class="inline-block bg-[var(--itcm-gold)] text-[var(--itcm-blue)] font-bold py-3 px-8 rounded-full text-lg hover:bg-yellow-400 transition-colors duration-300 transform hover:scale-105" href="#como-unirse">
+                            Descubre Cómo Unirte
+                        </a>
+                    </div>
+                </section>
+                
+                <!-- Sección de Beneficios -->
+                <section class="py-16 bg-white">
+                    <div class="container mx-auto px-6">
+                        <h2 class="text-3xl font-bold text-center text-[var(--itcm-blue)] mb-12">Beneficios de Ser Parte</h2>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            <!-- Beneficio 1 -->
+                            <div class="text-center p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                                <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[var(--itcm-blue)] text-white mx-auto mb-4">
+                                    <svg fill="currentColor" height="32" viewBox="0 0 256 256" width="32"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path></svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Networking</h3>
+                                <p class="text-gray-600">Conecta con estudiantes, profesores y profesionales de la industria.</p>
+                            </div>
+                            <!-- Beneficio 2 -->
+                            <div class="text-center p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                                <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[var(--itcm-blue)] text-white mx-auto mb-4">
+                                    <svg fill="currentColor" height="32" viewBox="0 0 256 256" width="32"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"></path></svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Desarrollo Profesional</h3>
+                                <p class="text-gray-600">Mejora tus habilidades técnicas y blandas a través de talleres y proyectos.</p>
+                            </div>
+                            <!-- Beneficio 3 -->
+                            <div class="text-center p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                                <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[var(--itcm-blue)] text-white mx-auto mb-4">
+                                    <svg fill="currentColor" height="32" viewBox="0 0 256 256" width="32"><path d="M224,115.55V176a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V80A16,16,0,0,1,48,64h92.45a8,8,0,0,1,0,16H48v96H208V115.55a8,8,0,0,1,16,0ZM90.34,117.66,128,80l37.66,37.66a8,8,0,0,0,11.32-11.32l-40-40a8,8,0,0,0-11.32,0l-40,40a8,8,0,0,0,11.32,11.32Zm101.8-51.8a8,8,0,0,0-8.68,1.72L160,86.85V48a8,8,0,0,0-16,0V96a8,8,0,0,0,13.66,5.66l24-24a8,8,0,0,0-5.66-13.66L160,79.25l19.52-19.52a8,8,0,0,0-5.86-13.87Z"></path></svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Acceso a Recursos</h3>
+                                <p class="text-gray-600">Obtén acceso a herramientas, software y plataformas de aprendizaje exclusivas.</p>
+                            </div>
+                            <!-- Beneficio 4 -->
+                            <div class="text-center p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                                <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[var(--itcm-blue)] text-white mx-auto mb-4">
+                                    <svg fill="currentColor" height="32" viewBox="0 0 256 256" width="32"><path d="M216,40H136V24a8,8,0,0,0-16,0V40H40A16,16,0,0,0,24,56V176a16,16,0,0,0,16,16H79.36L57.75,219a8,8,0,0,0,12.5,10l29.59-37h56.32l29.59,37a8,8,0,1,0,12.5-10l-21.61-27H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,136H40V56H216V176Z"></path></svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Proyectos Innovadores</h3>
+                                <p class="text-gray-600">Aplica tus conocimientos en desafíos reales y colaborativos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Sección Cómo Unirse -->
+                <section id="como-unirse" class="py-16 bg-gray-50">
+                    <div class="container mx-auto px-6">
+                        <h2 class="text-3xl font-bold text-center text-[var(--itcm-blue)] mb-4">¿Cómo Participar?</h2>
+                        <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">Unirte al capítulo ACM del ITCM es fácil y flexible. No requerimos un registro formal; puedes involucrarte de diversas maneras:</p>
+                        <div class="max-w-2xl mx-auto space-y-6">
+                            <!-- Paso 1 -->
+                            <div class="flex items-start gap-4 p-6 bg-white rounded-lg shadow-sm">
+                                <div class="flex-shrink-0 h-6 w-6 text-[var(--itcm-blue)] mt-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-800">Asiste a Reuniones y Eventos</h3>
+                                    <p class="text-gray-600">La mejor forma de empezar es venir. Conoce a otros miembros y participa en nuestras actividades.</p>
+                                </div>
+                            </div>
+                            <!-- Paso 2 -->
+                            <div class="flex items-start gap-4 p-6 bg-white rounded-lg shadow-sm">
+                                <div class="flex-shrink-0 h-6 w-6 text-[var(--itcm-blue)] mt-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-800">Síguenos en Redes Sociales</h3>
+                                    <p class="text-gray-600">Es nuestro canal principal de comunicación. Allí publicamos todas las noticias, eventos y oportunidades.</p>
+                                </div>
+                            </div>
+                            <!-- Paso 3 -->
+                            <div class="flex items-start gap-4 p-6 bg-white rounded-lg shadow-sm">
+                                <div class="flex-shrink-0 h-6 w-6 text-[var(--itcm-blue)] mt-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+                                <div>
+                                    <h3 class="font-bold text-lg text-gray-800">Contáctanos Directamente</h3>
+                                    <p class="text-gray-600">Si tienes una idea para un proyecto o una pregunta, no dudes en escribirnos. ¡Siempre estamos abiertos a nuevas iniciativas!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Sección de Testimonios -->
+                <section class="py-20 bg-white">
+                    <div class="container mx-auto px-6">
+                        <h2 class="text-3xl font-bold text-center text-[var(--itcm-blue)] mb-16">Lo que Dicen Nuestros Miembros</h2>
+                        <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
+                            <!-- Testimonio 1 -->
+                            <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center">
+                                <img alt="Foto de Sofía Ramírez" class="w-24 h-24 rounded-full mx-auto -mt-16 border-4 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBy7MUNSVlCSNqW1OCsCTCBJpc7eLuPX6_KrFuK3_MbuYpXgWIf37mNfXDVXpzJxWrhx09vz_Kxf8wPsJKzqb5j4hsNtyARdZk2xMuXkIXMl6l3TX7lj6skB9Ki_cq4XIZ2NfyBOHG_cCu0M-Z3kSO0bvbdYQMNO2Y1AI_34hqLCu76mNbLDQBMVsAfF9Bo9cQqTt0RiSVEuWPyYwgWijlHxKsxuzU-O-SNqxKICBqjnB1TV3PBAFHjC1tBcmyo1AWAUJEb1CFGL8"/>
+                                <blockquote class="text-gray-600 italic mt-6">
+                                    "El capítulo ACM me brindó la oportunidad de conectar con otros estudiantes apasionados por la tecnología y participar en proyectos desafiantes que han impulsado mi crecimiento."
+                                </blockquote>
+                                <p class="font-bold text-gray-800 mt-4">Sofía Ramírez</p>
+                                <p class="text-sm text-gray-500">Ingeniería en Sistemas Computacionales</p>
+                            </div>
+                            <!-- Testimonio 2 -->
+                            <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center">
+                                <img alt="Foto de Carlos Mendoza" class="w-24 h-24 rounded-full mx-auto -mt-16 border-4 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm7NNHsBfa_C0Y--jLnRLJOjTLuqst_pyUWxH0r5iI94mRbtT1V5IqS4cNTmngx_9h-OqLQuQbaeqpODAa856uDVipjQaV2RqRyYDCXMcNA-gPSLuSQqRPZ4YJhdZzODglivsa6tQfKzySYUwiBMfyjdKqjqA2x8xlCqVlNplRKX4vquhhFXw0umYecc_ortsKwmE_iJNvwAfxqmTo1HZi83CiIFSIF5ySdyvCjME6enNqCNMH9KaJ_BxaagjFHRcMHgFJod2cDz0"/>
+                                <blockquote class="text-gray-600 italic mt-6">
+                                    "Gracias a ACM, he tenido acceso a recursos valiosos y talleres que me han ayudado a desarrollar mis habilidades. La comunidad es muy acogedora y siempre dispuesta a ayudar."
+                                </blockquote>
+                                <p class="font-bold text-gray-800 mt-4">Carlos Mendoza</p>
+                                <p class="text-sm text-gray-500">Ingeniería en Tecnologías de la Información</p>
+                            </div>
+                            <!-- Testimonio 3 -->
+                            <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center">
+                                <img alt="Foto de Ana López" class="w-24 h-24 rounded-full mx-auto -mt-16 border-4 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE4J0C_cjEr1mdsJwJ1y6ODfmKivcS8e9lzrKyn62PHbHI-BdbTxWwbkh364Drgk-kX2Jn3boW5-NTmzd31SKkRgEh3wsompoHYe5O8AnB2NoPA8RsUkQ10mJUz_vc6BB5FbL5u3BCN30E9KpS-9MaBEhagRDvB5tTry1MsTGmvlmLa6h-vUgEvmQ7QkxVIpuDjECZ4qZWwXTdIOU2MLhlY5B8bj0BV2ENuFeRHJ1bIoKO5kZCb6-4vppjNYflt3u6IHO7mRt7jq0"/>
+                                <blockquote class="text-gray-600 italic mt-6">
+                                    "Participar en los proyectos de ACM ha sido una experiencia increíble. He aprendido a trabajar en equipo, a resolver problemas y a aplicar mis conocimientos en situaciones reales."
+                                </blockquote>
+                                <p class="font-bold text-gray-800 mt-4">Ana López</p>
+                                <p class="text-sm text-gray-500">Ingeniería en Sistemas Computacionales</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- ESTRUCTURA: Footer reutilizado de index.html -->
+            <footer id="contacto" class="bg-gray-800 text-gray-300">
+                <div class="max-w-6xl mx-auto px-10 py-10">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-4">ACM</h3>
+                            <p class="text-sm">Fomentando la excelencia y la innovación en la computación.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-4">Enlaces Rápidos</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="noticias.html">Noticias</a></li>
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="eventos.html">Eventos</a></li>
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="unete.html">Únete</a></li>
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="#contacto">Contacto</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-4">Síguenos</h3>
+                            <div class="flex justify-center md:justify-start gap-4">
+                                <!-- 👇 CAMBIO AQUÍ 👇 -->
+                    <a class="text-gray-400 hover:text-white transition-colors" href="https://www.facebook.com/share/19XLgcyq5N/" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Facebook">
+                        <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"></path></svg>
+                    </a>
+                    <!-- 👇 Y CAMBIO AQUÍ 👇 -->
+                    <a class="text-gray-400 hover:text-white transition-colors" href="https://www.instagram.com/acm.itcm?igsh=MWF6b2Nwa3p4b3BiZg==" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram">
+                        <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+            <p>© 2025 Capítulo Estudiantil ACM. Todos los derechos reservados.</p>
+            <p>Pagina hecha en su totalidad por el alumno: Jesús Javier Hernández Olvera (Persona no alifiada o asociada al ACM y derivados)</p>
+        </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

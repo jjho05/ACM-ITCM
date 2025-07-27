@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Eventos - ACM ITCM</title>
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <style type="text/tailwindcss">
+        :root {
+            --itcm-blue: #004481;
+            --itcm-gold: #D4AF37;
+            --accent-blue: #2496f3;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        .nav-link {
+            @apply text-[#111518] text-sm font-medium leading-normal relative after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:h-[2px] after:w-0 after:bg-[var(--itcm-blue)] after:transition-all after:duration-300 hover:after:w-full;
+        }
+        
+        .nav-link-active {
+             @apply text-[var(--itcm-blue)] text-sm font-bold leading-normal relative after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:h-[2px] after:w-full after:bg-[var(--itcm-blue)];
+        }
+
+        .btn-primary {
+            @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-[var(--itcm-blue)] text-white text-sm font-bold leading-normal tracking-[0.015em] transition-transform duration-300 hover:scale-105;
+        }
+
+        .btn-secondary {
+            @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-5 bg-gray-100 text-gray-800 text-sm font-medium leading-normal w-fit transition-colors hover:bg-gray-200;
+        }
+        
+        /* Usaremos nuestra clase .card que ya está definida en index.html */
+        .card {
+            @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <div class="relative flex size-full min-h-screen flex-col overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+
+            <!-- ESTRUCTURA: Header reutilizado de index.html -->
+            <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 bg-white/80 px-4 sm:px-10 py-3 backdrop-blur-sm">
+                <div class="flex items-center gap-4">
+                    <a href="index.html" aria-label="Página principal de ACM">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg/2048px-Association_for_Computing_Machinery_%28ACM%29_logo.svg.png" alt="Logo de la ACM" class="h-8 w-auto">
+                    </a>
+                    <span class="text-gray-300 font-light text-2xl hidden sm:block">|</span>
+                    <h2 class="text-[var(--itcm-blue)] text-xl font-bold leading-tight tracking-[-0.015em] hidden sm:block">
+                        Capítulo Estudiantil
+                    </h2>
+                </div>
+
+                <!-- CAMBIO: Enlaces del header actualizados para esta página -->
+                <nav class="hidden md:flex flex-1 justify-center gap-8">
+                    <a class="nav-link" href="index.html#inicio">Inicio</a>
+                    <a class="nav-link" href="noticias.html">Noticias</a>
+                    <!-- CAMBIO: 'Eventos' ahora es el enlace activo -->
+                    <a class="nav-link-active" href="eventos.html">Eventos</a>
+                    <a class="nav-link" href="unete.html">Únete</a>
+                    <a class="nav-link" href="index.html#contacto">Contacto</a>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <img src="https://www.tecnm.mx/images/tecnm_virtual/tecnm.png" alt="Logo del Tecnológico Nacional de México" class="h-10 sm:h-12 w-auto">
+                    <button id="menu-btn" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--itcm-blue)]"><span class="sr-only">Abrir menú principal</span><svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" /></svg><svg id="menu-icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button>
+                </div>
+
+                <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
+                    <nav class="flex flex-col items-center gap-4 p-5">
+                        <a class="nav-link w-full text-center py-2" href="index.html#inicio">Inicio</a>
+                        <a class="nav-link w-full text-center py-2" href="noticias.html">Noticias</a>
+                        <a class="nav-link-active w-full text-center py-2" href="eventos.html">Eventos</a>
+                        <a class="nav-link w-full text-center py-2" href="unete.html">Únete</a>
+                        <a class="nav-link w-full text-center py-2" href="index.html#contacto">Contacto</a>
+                    </nav>
+                </div>
+            </header>
+
+            <!-- CONTENIDO: Adaptado de tu plantilla -->
+            <main class="container mx-auto px-6 py-16 sm:py-24">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Nuestros Eventos</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Descubre, aprende y conéctate. Explora nuestra agenda de eventos diseñados para potenciar tus habilidades y tu red de contactos.</p>
+                </div>
+
+                <div class="space-y-16">
+                    <!-- Sección de Próximos Eventos -->
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 border-b-2 border-[var(--itcm-gold)] pb-2 mb-8 inline-block">Próximos Eventos</h3>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="card">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv98oAg5SRrs-YJ9ZhuD5EGzUpJi_3AJiDpxy3E7SnntUob2bvAT2RImGAbrIIQRrMDwnTHnJbdFbvrUbaYjVkFq09ZlsXczQDHpQ4CV9euAnESyezHWJQuCS3yjh8M34995wTYirf-9dU0IpRaKOCXNJIW_fJCvn85FLwUn-izHj0NjAeioSAKc430CENZOiznzLQC1X_rDnolk2BlFUGrmeWS7mpE5eXUdZWzhrVkcfLADEj13tQhreJOO-HnrTpUCvzNAO1L6o" alt="Taller de Programación Competitiva" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <p class="text-sm text-[var(--itcm-blue)] font-bold">5 JUL 2024</p>
+                                    <h4 class="text-xl font-bold my-2 text-gray-900">Taller de Programación Competitiva</h4>
+                                    <p class="text-gray-600 text-sm">Aprende técnicas avanzadas de programación para competencias. Impartido por expertos en el área.</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9_25u4DaU6n0_ubsCTVsWcNkr2Y6OFF4xcdT2A_p1tPq45_HfuQimM08RrtFbZo1zPV1qRF1TfcHp7Q8Nd52DjVul25sJDGjrPtenmsmrH33fGsyQ6vRMEfktfrUrmO76bJRpTyumnjAjXFmdfmQRSB9sEcTpsc4pwDDVeaPdgrNP5aALB2h55as5UbI_Sq_oCsLmWVz15GpIsJgmc2fRAAsbEIfd-5NsrnLN2RIOjQxOqbntNct_452GGMi0SZradBccHniV3j0" alt="Noche de Películas" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <p class="text-sm text-[var(--itcm-blue)] font-bold">19 JUL 2024</p>
+                                    <h4 class="text-xl font-bold my-2 text-gray-900">Noche de Películas de Ciencia Ficción</h4>
+                                    <p class="text-gray-600 text-sm">Disfruta de una noche de películas clásicas de ciencia ficción con palomitas y bebidas.</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgHNvEDYW1mddAaciK6taTW3L02AUdGxNil_Ny70ZCUX6EJrk9XUAj-jW25CVYpneDcw_JPI11r0itl-Mgfu_XsciLzh2SnZKwLkMiAnqwTLtHbLUxieJa4hpdY6IkhaUhE87w3V4z8DQTiah5M5ZYoNkdCyM-AwytAESYitVlhdY-Oaz-prISxb9DDWI-Xp3m9b5OCjfwLeMPtJjyizffO-danc1sXi5HwZMeZ4WokYPVBkuEj6R65mw8SJpA-tIj2uPQ84XlWSs" alt="Hackathon de Innovación" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <p class="text-sm text-[var(--itcm-blue)] font-bold">12 AGO 2024</p>
+                                    <h4 class="text-xl font-bold my-2 text-gray-900">Hackathon de Innovación</h4>
+                                    <p class="text-gray-600 text-sm">Participa en un hackatón de 24 horas para desarrollar soluciones innovadoras a problemas reales.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sección de Eventos Pasados -->
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 border-b-2 border-[var(--itcm-gold)] pb-2 mb-8 inline-block">Eventos Pasados</h3>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="card opacity-75">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5J-V2mKRnDEkQMl-fTgH-EpA4CUZdGhCrKJ4yLFGxvxQOMZSG7g83zrdZkK8A9b4pWqoAfta05Bpt3_kQH0EyrRX6KfctDzd-6tFj3jX4kmFaXqmRtrEhsInfCDGdnHCnznLeKreqmaVLJr1uxiB8oNrvcORj7ORWYNJ9zhbpB4ZgoevCeygdx6BDCtuilSfNRy3MXZGcCyKjVdHkPMcbiJroC0FSdLRnEXyRrpdJ_JI9RHvbS_JN3fp54pJdY8H-lih3fxAkGXY" alt="Seminario de IA" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <p class="text-sm text-gray-500 font-bold">15 JUN 2024</p>
+                                    <h4 class="text-xl font-bold my-2 text-gray-700">Seminario de Inteligencia Artificial</h4>
+                                    <p class="text-gray-500 text-sm">Un seminario sobre las últimas tendencias en inteligencia artificial y aprendizaje automático.</p>
+                                </div>
+                            </div>
+                            <div class="card opacity-75">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIwrAN_FKkXFY2BhH4tF-UCtrwcsDVjVSDcVV9FeQdWr0GMVqV64wGTrGWJECy1WhWNa0BecE58hohANEUrAcjimlySYWvmGFxAcA3qpHpJUXN_y8LprQ0m68XW7xrAn2vR_j0BP8LHRMrhGOUR0GYO-y74eBigqKJOE6iCSlgQuY6J9iWJmdgLQyL6ejAD5b8r8lSlRJlgB_67-ATjB9lPHRCCds2AGhY7U42kdIfP8v3Td_vagwngsE7GYk3WLU4AgOn8vx_RdQ" alt="Taller de Desarrollo Web" class="w-full h-48 object-cover">
+                                <div class="p-6">
+                                    <p class="text-sm text-gray-500 font-bold">2 MAY 2024</p>
+                                    <h4 class="text-xl font-bold my-2 text-gray-700">Taller de Desarrollo Web</h4>
+                                    <p class="text-gray-500 text-sm">Un taller práctico para aprender a construir aplicaciones web modernas con las últimas tecnologías.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- ESTRUCTURA: Footer reutilizado de index.html -->
+            <footer id="contacto" class="bg-gray-800 text-gray-300">
+                <div class="max-w-6xl mx-auto px-10 py-10">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-4">ACM</h3>
+                            <p class="text-sm">Fomentando la excelencia y la innovación en la computación.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-4">Enlaces Rápidos</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="noticias.html">Noticias</a></li>
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="eventos.html">Eventos</a></li>
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="unete.html">Únete</a></li>
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="index.html#contacto">Contacto</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-4">Síguenos</h3>
+                            <div class="flex justify-center md:justify-start gap-4">
+                                <!-- 👇 CAMBIO AQUÍ 👇 -->
+                    <a class="text-gray-400 hover:text-white transition-colors" href="https://www.facebook.com/share/19XLgcyq5N/" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Facebook">
+                        <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"></path></svg>
+                    </a>
+                    <!-- 👇 Y CAMBIO AQUÍ 👇 -->
+                    <a class="text-gray-400 hover:text-white transition-colors" href="https://www.instagram.com/acm.itcm?igsh=MWF6b2Nwa3p4b3BiZg==" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram">
+                        <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+            <p>© 2025 Capítulo Estudiantil ACM. Todos los derechos reservados.</p>
+            <p>Pagina hecha en su totalidad por el alumno: Jesús Javier Hernández Olvera (Persona no alifiada o asociada al ACM y derivados)</p>
+        </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

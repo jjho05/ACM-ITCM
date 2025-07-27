@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Noticias - ACM ITCM</title>
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <style type="text/tailwindcss">
+        :root {
+            --itcm-blue: #004481;
+            --itcm-gold: #D4AF37;
+            --accent-blue: #2496f3;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        .nav-link {
+            @apply text-[#111518] text-sm font-medium leading-normal relative after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:h-[2px] after:w-0 after:bg-[var(--itcm-blue)] after:transition-all after:duration-300 hover:after:w-full;
+        }
+        
+        .nav-link-active {
+             @apply text-[var(--itcm-blue)] text-sm font-bold leading-normal relative after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:h-[2px] after:w-full after:bg-[var(--itcm-blue)];
+        }
+
+        .btn-primary {
+            @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-[var(--itcm-blue)] text-white text-sm font-bold leading-normal tracking-[0.015em] transition-transform duration-300 hover:scale-105;
+        }
+
+        .btn-secondary {
+            @apply flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-5 bg-gray-100 text-gray-800 text-sm font-medium leading-normal w-fit transition-colors hover:bg-gray-200;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+    <div class="relative flex size-full min-h-screen flex-col overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+
+            <!-- ESTRUCTURA: Header reutilizado de index.html -->
+            <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 bg-white/80 px-4 sm:px-10 py-3 backdrop-blur-sm">
+                <div class="flex items-center gap-4">
+                    <a href="index.html" aria-label="Página principal de ACM">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg/2048px-Association_for_Computing_Machinery_%28ACM%29_logo.svg.png" alt="Logo de la ACM" class="h-8 w-auto">
+                    </a>
+                    <span class="text-gray-300 font-light text-2xl hidden sm:block">|</span>
+                    <h2 class="text-[var(--itcm-blue)] text-xl font-bold leading-tight tracking-[-0.015em] hidden sm:block">
+                        Capítulo Estudiantil
+                    </h2>
+                </div>
+
+                <nav class="hidden md:flex flex-1 justify-center gap-8">
+                    <a class="nav-link" href="index.html#inicio">Inicio</a>
+                    <a class="nav-link-active" href="noticias.html">Noticias</a>
+                    <a class="nav-link" href="eventos.html">Eventos</a>
+                    <a class="nav-link" href="unete.html">Únete</a>
+                    <a class="nav-link" href="index.html#contacto">Contacto</a>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <img src="https://www.tecnm.mx/images/tecnm_virtual/tecnm.png" alt="Logo del Tecnológico Nacional de México" class="h-10 sm:h-12 w-auto">
+                    <button id="menu-btn" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--itcm-blue)]"><span class="sr-only">Abrir menú principal</span><svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" /></svg><svg id="menu-icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button>
+                </div>
+
+                <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
+                    <nav class="flex flex-col items-center gap-4 p-5">
+                        <a class="nav-link w-full text-center py-2" href="index.html#inicio">Inicio</a>
+                        <a class="nav-link-active w-full text-center py-2" href="noticias.html">Noticias</a>
+                        <a class="nav-link w-full text-center py-2" href="eventos.html">Eventos</a>
+                        <a class="nav-link w-full text-center py-2" href="unete.html">Únete</a>
+                        <a class="nav-link w-full text-center py-2" href="index.html#contacto">Contacto</a>
+                    </nav>
+                </div>
+            </header>
+
+            <main class="flex-1">
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+                    <div class="max-w-4xl mx-auto">
+                        <h2 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl mb-12 text-center">
+                            Noticias del Capítulo
+                        </h2>
+                        <div class="grid gap-12">
+                            
+                            <!-- Artículo 1 -->
+                            <article class="flex flex-col items-start gap-6 md:flex-row md:gap-8">
+                                <div class="md:w-1/3 w-full">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6adgNfev3X4aYz8eFFJoTpzmElwHK3PWkpaCVedM7B3fqUjEnqVbVIbosM-cTxPcdKWCFGqxIwo7gIkwFiCtEo6QsM7Pl44JYT-KFFMPrkbfh_A58VGhJJKOp53r0alh4W_qKv7quVNV7jukbja4bDXpO8Z8grBKF1DTO56rKVLnKqray7qN_LQd7xPXZQoiENY6apPFIrIgaifCrmgGOB2anMMjJAQ0Y2jJ8uAotnFjfj8hBkCDOtT4rAIEDLPNnjY3UmOZujA4" alt="Taller de Programación Competitiva" class="w-full aspect-video object-cover rounded-2xl">
+                                </div>
+                                <div class="md:w-2/3 w-full flex flex-col">
+                                    <p class="text-sm font-medium text-[var(--itcm-blue)]">20 de Julio, 2024</p>
+                                    <h3 class="mt-2 text-2xl font-bold leading-tight text-gray-900">Taller de Introducción a la Programación Competitiva</h3>
+                                    <p class="mt-3 text-base leading-relaxed text-gray-600">El capítulo ACM del ITCM organizó un taller de introducción a la programación competitiva, cubriendo temas como algoritmos básicos, estructuras de datos y técnicas de resolución de problemas.</p>
+                                </div>
+                            </article>
+                            
+                            <!-- Artículo 2 -->
+                            <article class="flex flex-col items-start gap-6 md:flex-row md:gap-8">
+                                <div class="md:w-1/3 w-full">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRjXVvNeNw1uV_C2ieLfloDXwLPfEle64iVWu1ImxwEgxzYJeiHhFSnOimxuqMFX187k5XBP3ATVocJlUmSqeQTl_CJFdyvWnEcrqgoz94c6xbxeTULJVchmjtuW2Z0ByKpJ7JNz1TYpU5qGRpHhjkS_Hk6dwp4j6HrPUnYFnuqqB8kQN3QjwlNNj6U7YDzGBpCBCdV3Rpn6NldoTJB5u1DwGEiNw8L8ci_Ra1Y4URjxzW_p346XJL7PDKgv_utu50xK00SYU7lL8" alt="Competencia Regional de Programación" class="w-full aspect-video object-cover rounded-2xl">
+                                </div>
+                                <div class="md:w-2/3 w-full flex flex-col">
+                                    <p class="text-sm font-medium text-[var(--itcm-blue)]">15 de Junio, 2024</p>
+                                    <h3 class="mt-2 text-2xl font-bold leading-tight text-gray-900">Participación en la Competencia Regional de Programación</h3>
+                                    <p class="mt-3 text-base leading-relaxed text-gray-600">El equipo del ITCM participó en la competencia regional de programación, obteniendo un destacado tercer lugar, demostrando sus habilidades en la resolución de problemas complejos.</p>
+                                </div>
+                            </article>
+
+                            <!-- Artículo 3 (NUEVO) -->
+                            <article class="flex flex-col items-start gap-6 md:flex-row md:gap-8">
+                                <div class="md:w-1/3 w-full">
+                                    <img src="https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=2070&auto=format&fit=crop" alt="Taller de Ciberseguridad" class="w-full aspect-video object-cover rounded-2xl">
+                                </div>
+                                <div class="md:w-2/3 w-full flex flex-col">
+                                    <p class="text-sm font-medium text-[var(--itcm-blue)]">10 de Mayo, 2024</p>
+                                    <h3 class="mt-2 text-2xl font-bold leading-tight text-gray-900">Taller Intensivo de Ciberseguridad Defensiva</h3>
+                                    <p class="mt-3 text-base leading-relaxed text-gray-600">Se llevó a cabo un taller práctico donde los asistentes aprendieron a identificar y mitigar vulnerabilidades comunes en sistemas web, fortaleciendo la cultura de seguridad en nuestra comunidad.</p>
+                                </div>
+                            </article>
+
+                            <!-- Artículo 4 (NUEVO) -->
+                            <article class="flex flex-col items-start gap-6 md:flex-row md:gap-8">
+                                <div class="md:w-1/3 w-full">
+                                    <img src="https://images.unsplash.com/photo-1610465299993-e6675c9f9efa?q=80&w=2070&auto=format&fit=crop" alt="Panel de Mujeres en Tecnología" class="w-full aspect-video object-cover rounded-2xl">
+                                </div>
+                                <div class="md:w-2/3 w-full flex flex-col">
+                                    <p class="text-sm font-medium text-[var(--itcm-blue)]">8 de Marzo, 2024</p>
+                                    <h3 class="mt-2 text-2xl font-bold leading-tight text-gray-900">Panel de Discusión: Mujeres en la Tecnología</h3>
+                                    <p class="mt-3 text-base leading-relaxed text-gray-600">En conmemoración del Día Internacional de la Mujer, organizamos un panel con egresadas y profesionales destacadas que compartieron sus experiencias e inspiraron a la nueva generación.</p>
+                                </div>
+                            </article>
+
+                             <!-- Artículo 5 (NUEVO) -->
+                            <article class="flex flex-col items-start gap-6 md:flex-row md:gap-8">
+                                <div class="md:w-1/3 w-full">
+                                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1974&auto=format&fit=crop" alt="Semana de Bienvenida a nuevos miembros" class="w-full aspect-video object-cover rounded-2xl">
+                                </div>
+                                <div class="md:w-2/3 w-full flex flex-col">
+                                    <p class="text-sm font-medium text-[var(--itcm-blue)]">15 de Febrero, 2024</p>
+                                    <h3 class="mt-2 text-2xl font-bold leading-tight text-gray-900">Éxito en la Semana de Bienvenida para Nuevos Miembros</h3>
+                                    <p class="mt-3 text-base leading-relaxed text-gray-600">Con gran entusiasmo dimos la bienvenida a los nuevos integrantes del capítulo con una semana de actividades, networking y una introducción a los proyectos del semestre.</p>
+                                </div>
+                            </article>
+
+                             <!-- Artículo 6 (NUEVO) -->
+                            <article class="flex flex-col items-start gap-6 md:flex-row md:gap-8">
+                                <div class="md:w-1/3 w-full">
+                                    <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=2070&auto=format&fit=crop" alt="Charla sobre emprendimiento tecnológico" class="w-full aspect-video object-cover rounded-2xl">
+                                </div>
+                                <div class="md:w-2/3 w-full flex flex-col">
+                                    <p class="text-sm font-medium text-[var(--itcm-blue)]">25 de Enero, 2024</p>
+                                    <h3 class="mt-2 text-2xl font-bold leading-tight text-gray-900">Charla Inspiradora sobre Emprendimiento Tecnológico</h3>
+                                    <p class="mt-3 text-base leading-relaxed text-gray-600">Un egresado fundador de una exitosa startup local compartió su viaje, ofreciendo consejos valiosos sobre cómo transformar una idea en un negocio viable en el mundo de la tecnología.</p>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- ESTRUCTURA: Footer reutilizado de index.html -->
+            <footer id="contacto" class="bg-gray-800 text-gray-300">
+                <div class="max-w-6xl mx-auto px-10 py-10">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-4">ACM</h3>
+                            <p class="text-sm">Fomentando la excelencia y la innovación en la computación.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-4">Enlaces Rápidos</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="noticias.html">Noticias</a></li>
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="eventos.html">Eventos</a></li>
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="unete.html">Únete</a></li>
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="index.html#contacto">Contacto</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-4">Síguenos</h3>
+                            <div class="flex justify-center md:justify-start gap-4">
+                                <!-- 👇 CAMBIO AQUÍ 👇 -->
+                    <a class="text-gray-400 hover:text-white transition-colors" href="https://www.facebook.com/share/19XLgcyq5N/" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Facebook">
+                        <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"></path></svg>
+                    </a>
+                    <!-- 👇 Y CAMBIO AQUÍ 👇 -->
+                    <a class="text-gray-400 hover:text-white transition-colors" href="https://www.instagram.com/acm.itcm?igsh=MWF6b2Nwa3p4b3BiZg==" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram">
+                        <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+            <p>© 2025 Capítulo Estudiantil ACM. Todos los derechos reservados.</p>
+            <p>Pagina hecha en su totalidad por el alumno: Jesús Javier Hernández Olvera (Persona no alifiada o asociada al ACM y derivados)</p>
+        </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

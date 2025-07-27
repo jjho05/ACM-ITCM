@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Nuestra Historia - ACM ITCM</title>
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <style type="text/tailwindcss">
+        :root {
+            --itcm-blue: #004481;
+            --itcm-gold: #D4AF37;
+            --accent-blue: #2496f3;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        .nav-link {
+            @apply text-[#111518] text-sm font-medium leading-normal relative after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:h-[2px] after:w-0 after:bg-[var(--itcm-blue)] after:transition-all after:duration-300 hover:after:w-full;
+        }
+        
+        /* Estilo para la línea de tiempo, adaptado de tu plantilla */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 20px; /* Alineado con el centro del círculo */
+            height: calc(100% - 20px);
+            width: 2px;
+            background-color: var(--itcm-blue);
+        }
+        /* El último item no necesita la línea hacia abajo */
+        .timeline-item:last-child::before {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <div class="relative flex size-full min-h-screen flex-col overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+
+            <!-- ESTRUCTURA: Header reutilizado de index.html -->
+            <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 bg-white/80 px-4 sm:px-10 py-3 backdrop-blur-sm">
+                <div class="flex items-center gap-4">
+                    <a href="index.html" aria-label="Página principal de ACM">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg/2048px-Association_for_Computing_Machinery_%28ACM%29_logo.svg.png" alt="Logo de la ACM" class="h-8 w-auto">
+                    </a>
+                    <span class="text-gray-300 font-light text-2xl hidden sm:block">|</span>
+                    <h2 class="text-[var(--itcm-blue)] text-xl font-bold leading-tight tracking-[-0.015em] hidden sm:block">
+                        Capítulo Estudiantil
+                    </h2>
+                </div>
+
+                <!-- CAMBIO: Enlaces del header actualizados para esta página -->
+                <nav class="hidden md:flex flex-1 justify-center gap-8">
+                    <a class="nav-link" href="index.html#inicio">Inicio</a>
+                    <a class="nav-link" href="noticias.html">Noticias</a>
+                    <a class="nav-link" href="eventos.html">Eventos</a>
+                    <a class="nav-link" href="unete.html">Únete</a>
+                    <a class="nav-link" href="index.html#contacto">Contacto</a>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <img src="https://www.tecnm.mx/images/tecnm_virtual/tecnm.png" alt="Logo del Tecnológico Nacional de México" class="h-10 sm:h-12 w-auto">
+                    <button id="menu-btn" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--itcm-blue)]"><span class="sr-only">Abrir menú principal</span><svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" /></svg><svg id="menu-icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button>
+                </div>
+
+                <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
+                    <nav class="flex flex-col items-center gap-4 p-5">
+                        <a class="nav-link w-full text-center py-2" href="index.html#inicio">Inicio</a>
+                        <a class="nav-link w-full text-center py-2" href="noticias.html">Noticias</a>
+                        <a class="nav-link w-full text-center py-2" href="eventos.html">Eventos</a>
+                        <a class="nav-link w-full text-center py-2" href="unete.html">Únete</a>
+                        <a class="nav-link w-full text-center py-2" href="index.html#contacto">Contacto</a>
+                    </nav>
+                </div>
+            </header>
+
+            <main class="container mx-auto px-6 py-16 sm:py-24">
+                <div class="max-w-4xl mx-auto">
+                    <header class="text-center mb-16">
+                        <h1 class="text-5xl font-extrabold text-[var(--itcm-blue)] tracking-tight">Nuestra Historia</h1>
+                        <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                            Desde nuestra fundación, el capítulo estudiantil de la ACM en el ITCM ha sido un faro de innovación, comunidad y excelencia en el campo de la informática.
+                        </p>
+                    </header>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-10">Hitos Importantes</h2>
+                        <div class="relative pl-8">
+                            <!-- Línea dorada de la línea de tiempo -->
+                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-[var(--itcm-gold)] rounded-full"></div>
+                            <div class="space-y-12">
+                                
+                                <!-- Hito 1 -->
+                                <div class="relative timeline-item">
+                                    <div class="absolute -left-[42px] top-[10px] size-8 bg-[var(--itcm-blue)] rounded-full border-4 border-white flex items-center justify-center">
+                                        <svg class="text-white" fill="currentColor" height="16px" viewBox="0 0 256 256" width="16px"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-[var(--itcm-blue)]">2015</p>
+                                        <h3 class="text-xl font-bold mt-1 text-gray-800">Fundación del Capítulo</h3>
+                                        <p class="text-gray-600 mt-2">Un grupo de estudiantes visionarios establece el primer capítulo de ACM en el ITCM para fomentar la pasión por la computación.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Hito 2 -->
+                                <div class="relative timeline-item">
+                                    <div class="absolute -left-[42px] top-[10px] size-8 bg-[var(--itcm-blue)] rounded-full border-4 border-white flex items-center justify-center">
+                                        <svg class="text-white" fill="currentColor" height="16px" viewBox="0 0 256 256" width="16px"><path d="M216,40H136V24a8,8,0,0,0-16,0V40H40A16,16,0,0,0,24,56V176a16,16,0,0,0,16,16H79.36L57.75,219a8,8,0,0,0,12.5,10l29.59-37h56.32l29.59,37a8,8,0,1,0,12.5-10l-21.61-27H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,136H40V56H216V176Z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-[var(--itcm-blue)]">2017</p>
+                                        <h3 class="text-xl font-bold mt-1 text-gray-800">Primer Congreso de Tecnología</h3>
+                                        <p class="text-gray-600 mt-2">Organizamos nuestro primer gran evento, atrayendo a ponentes de la industria y a cientos de estudiantes.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Hito 3 -->
+                                <div class="relative timeline-item">
+                                    <div class="absolute -left-[42px] top-[10px] size-8 bg-[var(--itcm-blue)] rounded-full border-4 border-white flex items-center justify-center">
+                                        <svg class="text-white" fill="currentColor" height="16px" viewBox="0 0 256 256" width="16px"><path d="M232,64H208V56a16,16,0,0,0-16-16H64A16,16,0,0,0,48,56v8H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-28.49,64.64-63.51,64.9H128a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-[var(--itcm-blue)]">2020</p>
+                                        <h3 class="text-xl font-bold mt-1 text-gray-800">Premio a la Innovación</h3>
+                                        <p class="text-gray-600 mt-2">Nuestro capítulo es galardonado a nivel nacional por un proyecto de software de impacto social.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Hito 4 -->
+                                <div class="relative"> <!-- Último item no lleva la clase 'timeline-item' -->
+                                    <div class="absolute -left-[42px] top-[10px] size-8 bg-[var(--itcm-blue)] rounded-full border-4 border-white flex items-center justify-center">
+                                        <svg class="text-white" fill="currentColor" height="16px" viewBox="0 0 256 256" width="16px"><path d="M232,112a24,24,0,0,0-24-24H136V79a32.06,32.06,0,0,0,24-31c0-28-26.44-45.91-27.56-46.66a8,8,0,0,0-8.88,0C122.44,2.09,96,20,96,48a32.06,32.06,0,0,0,24,31v9H48a24,24,0,0,0-24,24v23.33a40.84,40.84,0,0,0,8,24.24V200a24,24,0,0,0,24,24H200a24,24,0,0,0,24-24V159.57a40.84,40.84,0,0,0,8-24.24ZM112,48c0-13.57,10-24.46,16-29.79,6,5.33,16,16.22,16,29.79a16,16,0,0,1-32,0ZM40,112a8,8,0,0,1,8-8H208a8,8,0,0,1,8,8v23.33c0,13.25-10.46,24.31-23.32,24.66A24,24,0,0,1,168,136a8,8,0,0,0-16,0,24,24,0,0,1-48,0,8,8,0,0,0-16,0,24,24,0,0,1-24.68,24C50.46,159.64,40,148.58,40,135.33Zm160,96H56a8,8,0,0,1-8-8V172.56A38.77,38.77,0,0,0,62.88,176a39.69,39.69,0,0,0,29-11.31A40.36,40.36,0,0,0,96,160a40,40,0,0,0,64,0,40.36,40.36,0,0,0,4.13,4.67A39.67,39.67,0,0,0,192,176c.38,0,.76,0,1.14,0A38.77,38.77,0,0,0,208,172.56V200A8,8,0,0,1,200,208Z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-[var(--itcm-blue)]">2023 - Presente</p>
+                                        <h3 class="text-xl font-bold mt-1 text-gray-800">Expansión y Futuro</h3>
+                                        <p class="text-gray-600 mt-2">Continuamos creciendo, lanzando nuevas iniciativas y preparando a la próxima generación de líderes en tecnología.</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- ESTRUCTURA: Footer reutilizado de index.html -->
+            <footer id="contacto" class="bg-gray-800 text-gray-300">
+                <div class="max-w-6xl mx-auto px-10 py-10">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-4">ACM</h3>
+                            <p class="text-sm">Fomentando la excelencia y la innovación en la computación.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-4">Enlaces Rápidos</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="noticias.html">Noticias</a></li>
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="eventos.html">Eventos</a></li>
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="unete.html">Únete</a></li>
+                                <li><a class="hover:text-[var(--itcm-gold)] transition-colors" href="#contacto">Contacto</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-4">Síguenos</h3>
+                            <div class="flex justify-center md:justify-start gap-4">
+                                <!-- 👇 CAMBIO AQUÍ 👇 -->
+                    <a class="text-gray-400 hover:text-white transition-colors" href="https://www.facebook.com/share/19XLgcyq5N/" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Facebook">
+                        <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"></path></svg>
+                    </a>
+                    <!-- 👇 Y CAMBIO AQUÍ 👇 -->
+                    <a class="text-gray-400 hover:text-white transition-colors" href="https://www.instagram.com/acm.itcm?igsh=MWF6b2Nwa3p4b3BiZg==" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram">
+                        <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+            <p>© 2025 Capítulo Estudiantil ACM. Todos los derechos reservados.</p>
+            <p>Pagina hecha en su totalidad por el alumno: Jesús Javier Hernández Olvera (Persona no alifiada o asociada al ACM y derivados)</p>
+        </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
